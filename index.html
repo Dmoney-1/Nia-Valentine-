@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Will you be my Valentine?</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+body{
+margin:0;
+font-family:system-ui,-apple-system,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:linear-gradient(#ffe6f0,#ffd6e7);
+overflow:hidden;
+padding:15px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 15px 50px rgba(0,0,0,.2);
+width:95%;
+max-width:600px;
+display:none;
+}
+
+.photo img{
+width:100%;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+h1{
+font-size:26px;
+margin-bottom:20px;
+}
+
+button{
+padding:14px 22px;
+font-size:18px;
+border:none;
+border-radius:999px;
+margin:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+#yesBtn{
+background:#ff3b7a;
+color:white;
+}
+
+#noBtn{
+background:#ddd;
+}
+
+.result{
+display:none;
+margin-top:15px;
+font-size:26px;
+font-weight:bold;
+}
+
+#loader{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:pink;
+font-weight:bold;
+font-size:20px;
+z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">Loading something special… ❤️</div>
+
+<div class="card" id="card">
+
+<div class="photo">
+<img src="photo.png.PNG" alt="Us">
+</div>
+
+<h1>Nia Patel, will you be my Valentine? ❤️</h1>
+
+<button id="yesBtn">Yes</button>
+<button id="noBtn">No</button>
+
+<div class="result" id="result">YAY! 🎉</div>
+
+</div>
+
+<script>
+const loader = document.getElementById("loader");
+const card = document.getElementById("card");
+
+setTimeout(()=>{
+loader.style.display="none";
+card.style.display="block";
+},2000);
+
+const yesBtn=document.getElementById("yesBtn");
+const result=document.getElementById("result");
+
+yesBtn.addEventListener("click",()=>{
+result.style.display="block";
+confetti({particleCount:250,spread:120});
+});
+</script>
+
+</body>
+</html>
